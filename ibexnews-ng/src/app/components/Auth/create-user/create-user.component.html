@@ -1,0 +1,38 @@
+<div class="flex-col flex justify-center items-center bg-red-400 h-screen">
+  <form class="flex-col flex p-4 bg-red-300 rounded w-2/3 text-white" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <h2 class="text-white text-xl text-center">Crea tu cuenta</h2>
+
+    <a class="text-center text-sm hover:text-yellow-400" routerLink="../login">¿Ya estás registrado? Pulsa aquí</a>
+
+    <label class="py-1">Name</label>
+    <input class="py-1" type="text" formControlName="name" placeholder="Nombre">
+
+    <div class="text-sm text-red-900" *ngIf="nameField.hasError('required') && nameField.touched">
+      El nombre es  <strong>necesario</strong>
+    </div>
+
+
+    <label class="py-1" for="email">Correo electrónico</label>
+    <input class="py-1 text-gray-800" formControlName="email" type="email" name="email" placeholder="Correo">
+    <p class="text-sm text-red-900" *ngIf="emailField.hasError('required') && emailField.touched">El correo es requerido</p>
+    <p class="text-sm text-red-900" *ngIf="emailField.hasError('email')">Correo no válido</p>
+
+    <label class="py-1" for="password">Contraseña</label><br>
+    <input class="py-1 text-gray-800" formControlName="password" type="password" name="password" placeholder="Contraseña"><br>
+    <p class="text-sm text-red-900" *ngIf="passwordField.hasError('required') && passwordField.touched">Contraseña no válida</p>
+    <p class="text-sm text-red-900" *ngIf="passwordField.hasError('minlength')">La contraseña debe contener al menos 7
+      caracteres</p>
+
+    <label class="py-1" for="dateOfBirth">Fecha de nacimiento</label><br>
+    <input class="py-1 text-gray-800" formControlName="dateOfBirth" type="date" name="dateOfBirth"><br>
+    <p class="text-sm text-red-900" *ngIf="dateOfBirthField.hasError('required') && dateOfBirthField.touched">Fecha de nacimiento
+      necesaria</p>
+
+    <label class="py-1" for="job">Empleo</label><br>
+    <input class="py-1 text-gray-800" formControlName="job" type="text" name="job" placeholder="Empleo"><br>
+    <p class="text-sm text-red-900" *ngIf="jobField.hasError('required') && jobField.touched">Introduce un empleo válido</p>
+
+    <button class="bg-yellow-400 text-white hover:bg-yellow-500 p-2 mt-6 rounded" type="submit" [disabled]="form.invalid">Submit</button>
+
+  </form>
+</div>

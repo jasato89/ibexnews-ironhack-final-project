@@ -1,0 +1,36 @@
+<div *ngIf="!isLogged" (mouseleave)="hideMenu()">
+
+  <nav class="bg-red-400 text-gray-800 p-2">
+    <div class="h-auto flex justify-between">
+      <a routerLink="" class="py-1"><p class="font-extralight">IBEX</p><p class="font-extrabold">NEWS</p></a>
+      <div class="hidden md:flex md:flex-row py-1">
+      </div>
+      <button (click)="showMenu()" class="bg-white-400 text-white material-icons py-1" type="button">menu</button>
+    </div>
+  </nav>
+  <div class="border-t border-red-300">
+    <div *ngIf="menu" [@fadeInDownOnEnter] [@fadeOutUpOnLeave] class="text-right bg-red-400 text-white flex flex-col">
+      <button class="py-2 pr-5" routerLink="login">Login/Create User</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLogged" (mouseleave)="hideMenu()">
+
+  <nav class="bg-red-400 text-gray-800 p-2">
+    <div class="h-auto flex justify-between">
+      <a routerLink="" class="py-1"><p class="font-extralight">IBEX</p><p class="font-extrabold">NEWS</p></a>
+      <div class="hidden md:flex md:flex-row py-1">
+
+      </div>
+      <button (click)="showMenu()" class="bg-white-400 text-white material-icons py-1" type="button">menu</button>
+    </div>
+  </nav>
+  <div class="border-t border-red-300" >
+    <div *ngIf="menu" [@fadeInDownOnEnter] [@fadeOutUpOnLeave] class="text-right bg-red-400 text-white flex flex-col">
+      <button class="py-2 pr-5" routerLink="my-profile">My Space</button>
+      <button class="py-2 pr-5 border-t border-red-300" (click)="logout()">Logout</button>
+
+    </div>
+  </div>
+</div>

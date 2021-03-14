@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ibexnews": {
+      "hosting": {
+        "ibexnews-ng": [
+          "ibexnews"
+        ]
+      }
+    }
+  }
+}

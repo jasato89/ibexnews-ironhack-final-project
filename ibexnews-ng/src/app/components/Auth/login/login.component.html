@@ -1,0 +1,21 @@
+<div class="flex-col flex justify-center items-center bg-red-400 h-screen">
+  <form class="flex-col flex p-4 bg-red-300 rounded w-2/3" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <h2 class="text-white text-xl text-center">Bienvenido de nuevo</h2>
+    <a class="text-center text-sm hover:text-yellow-400 text-white" routerLink="../create-user">¿Todavía no tienes cuenta? Crea una aquí</a>
+
+    <label class="text-white py-2" for="email">Correo electrónico</label>
+    <input formControlName="email" type="email" name="email">
+    <p class="text-yellow-400 text-sm" *ngIf="emailField.hasError('required') && emailField.touched">El correo es requerido</p>
+    <p class="text-yellow-400 text-sm" *ngIf="emailField.hasError('email')">Correo no válido</p>
+
+    <label class="text-white py-2" for="password">Contraseña</label>
+    <input formControlName="password" type="password" name="password">
+    <p class="text-yellow-400 text-sm" *ngIf="passwordField.hasError('required') && passwordField.touched">Contraseña no válida</p>
+    <p class="text-yellow-400 text-sm" *ngIf="passwordField.hasError('minlength')">La contraseña debe contener al menos 7
+      caracteres</p>
+
+    <button class="bg-yellow-400 text-white hover:bg-yellow-500 p-2 mt-6 rounded" type="submit" [disabled]="form.invalid">Submit</button>
+
+  </form>
+</div>
+

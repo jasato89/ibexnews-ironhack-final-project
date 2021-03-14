@@ -1,0 +1,33 @@
+<div class="p-4 bg-red-200 w-screen">
+  <h2 class=" pb-2 px-10 text-center text-4xl text-gray-700">Bienvenido al mayor agregador de noticias sobre la bolsa
+    del mercado.</h2>
+  <p class="pb-2 px-10 text-gray-700 text-center text-xl">Busca por valores, noticias generales o accede a tu espacio
+    personalizado con un resumen de los valores que estás siguiendo</p>
+</div>
+<div class="flex flex-wrap flex-col justify-center items-center bg-yellow-400 py-10 ">
+  <div class="h-auto w-full md:w-5/12 p-2">
+    <h2 class="p-1 text-gray-700">Busca los principales valores del Ibex</h2>
+    <ng-autocomplete
+      [data]="companies"
+      [searchKeyword]="keyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item.productionName"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+    <button class="my-2 p-2 bg-red-400 text-yellow-400 hover:bg-red-500 rounded" *ngIf="backToNews"
+            (click)="onChangeSearch('')">Volver a noticias generales
+    </button>
+  </div>
+</div>
+
+
