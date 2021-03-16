@@ -1,7 +1,7 @@
-import { DailyStocks } from './daily-stocks';
+import { Quote } from './quote';
 
 describe('DailyStocks', () => {
   it('should create an instance', () => {
-    expect(new DailyStocks()).toBeTruthy();
+    expect(new Quote()).toBeTruthy();
   });
 });

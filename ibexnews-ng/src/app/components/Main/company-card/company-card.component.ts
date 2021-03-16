@@ -5,6 +5,8 @@ import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {map} from "rxjs/operators";
 import * as moment from "moment";
+import {Quote} from "../../../classes/daily-stocks/quote";
+import {DailyStockValuesService} from "../../../services/daily-stock-values/daily-stock-values.service";
 
 @Component({
   selector: 'app-company-main',
@@ -13,15 +15,24 @@ import * as moment from "moment";
 })
 export class CompanyCardComponent implements OnInit {
 
-  constructor(private newsService: NewsService, public activatedRoute: ActivatedRoute) {
+  constructor(private newsService: NewsService, public activatedRoute: ActivatedRoute, public stockService: DailyStockValuesService) {
   }
 
 
   @Input() ibexCompany: IbexCompany = new IbexCompany("","", "","","", "" );
   offset: number = 0;
   limit: number = 10;
+  quote!:Quote;
 
   ngOnInit(): void {
+    this.getQuote();
+
+  }
+
+  getQuote() {
+    this.stockService.getQuote(this.ibexCompany.symbol).subscribe(result =>{
+      this.quote = result;
+    })
 
   }
 
@@ -66,6 +77,10 @@ export class CompanyCardComponent implements OnInit {
 
   formatDate(date: string):string {
     return (moment(date)).format('DD-MMM-YYYY HH:mm:ss');
+  }
+
+  formatDateOnlyDate(date :string) {
+    return (moment(date)).format('DD-MMM-YYYY');
   }
 
 }

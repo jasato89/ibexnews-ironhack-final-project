@@ -15,6 +15,7 @@ import { CompanyCardComponent } from './components/Main/company-card/company-car
 import { IbexSearchComponent } from './components/Main/ibex-search/ibex-search.component';
 import {AutocompleteLibModule} from "angular-ng-autocomplete";
 import { MainPageComponent } from './components/Main/main-page/main-page.component';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
   declarations: [

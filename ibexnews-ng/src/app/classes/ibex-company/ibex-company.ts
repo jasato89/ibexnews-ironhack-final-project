@@ -1,7 +1,5 @@
 import {News} from "../news/news";
-import {List} from "postcss/lib/list";
-import {Daily} from "../../services/daily-stock-values/daily-stock-values.service";
-import {DailyStocks} from "../daily-stocks/daily-stocks";
+import {Quote} from "../daily-stocks/quote";
 
 export class IbexCompany {
 
@@ -14,14 +12,14 @@ export class IbexCompany {
   }
 
   private _news: News[] = [];
-  private _daily! : DailyStocks;
+  private _daily! : Quote;
 
 
-  get daily(): DailyStocks {
+  get daily(): Quote {
     return this._daily;
   }
 
-  set daily(value: DailyStocks) {
+  set daily(value: Quote) {
     this._daily = value;
   }
 

@@ -42,11 +42,55 @@
              class="flex flex-row justify-between content-center items-center bg-gray-400 rounded-t">
           <img class="self-center w-20 h-20 mx-2 object-contain "
                src="assets/images/{{company.queryName}}.png">
-          <button class="bg-yellow-400 text-white  p-2 h-5/6 rounded hover:bg-yellow-500 mx-2" (click)="deleteCompany(i)">
+          <button class="bg-yellow-400 text-white  p-2 h-5/6 rounded hover:bg-yellow-500 mx-2"
+                  (click)="deleteCompany(i)">
             Eliminar
           </button>
         </div>
         <div class="mb-2 p-2 border-l-2 border-r-2 border-b-2 border-gray-400 rounded-b" *ngIf="showNews[i]">
+
+          <table class="table-auto w-full overflow-x-scroll rounded-lg m-5 mx-auto bg-gray-700 text-gray-50">
+            <thead>
+            <tr>
+              <th class="px-4 py-3">Símbolo</th>
+              <th class="px-4 py-3">Apertura</th>
+              <th class="px-4 py-3">Máximo</th>
+              <th class="px-4 py-3">Mínimo</th>
+              <th class="px-4 py-3">Valor</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="px-4 py-3">{{quote[i] ? quote[i].symbol : 'N/A'}}</td>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].open | number: '1.2-2') : 'N/A'}}</td>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].high | number: '1.2-2') : 'N/A'}}</td>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].low | number: '1.2-2') : 'N/A'}}</td>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].price | number: '1.2-2') : 'N/A'}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <table class="table-auto w-full overflow-x-scroll rounded-lg m-5 mx-auto bg-gray-700 text-gray-50">
+            <thead>
+            <tr>
+              <th class="px-4 py-3">Volumen</th>
+              <th class="px-4 py-3">Último día</th>
+              <th class="px-4 py-3">Cierre Previo</th>
+              <th class="px-4 py-3">Diferencia</th>
+              <th class="px-4 py-3">Diferencia %</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].volume | number: '1.0') : "N/A" }}</td>
+              <td class="px-4 py-3">{{quote[i] ? formatDateOnlyDate(quote[i].latestTradingDay) : 'N/A'}}</td>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].previousClose | number: '1.2-2') : 'N/A'}}</td>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].change | number: '1.2-2') : 'N/A'}}</td>
+              <td class="px-4 py-3">{{quote[i] ? (quote[i].changePercent) : 'N/A'}}</td>
+            </tr>
+            </tbody>
+          </table>
           <div *ngFor="let article of company.news" class="bg-white border-b-2 border-gray-400 p-2 m-2">
             <div>
               <p class="text-gray-600">{{formatDate(article.localDateTime)}}</p>
