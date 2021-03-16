@@ -9,51 +9,52 @@
 
   <div class="bg-yellow-400 p-2 m-2 w-screen sm:w-2/3 rounded">
 
-    <table class="table-auto w-full overflow-x-scroll rounded-lg m-5 mx-auto bg-gray-700 text-gray-50">
-      <thead>
-      <tr>
-        <th class="px-4 py-3">Símbolo</th>
-        <th class="px-4 py-3">Apertura</th>
-        <th class="px-4 py-3">Máximo</th>
-        <th class="px-4 py-3">Mínimo</th>
-        <th class="px-4 py-3">Valor</th>
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full overflow-x-scroll rounded-lg m-5 mx-auto bg-gray-700 text-gray-50">
+        <thead>
+        <tr>
+          <th class="px-4 py-3">Símbolo</th>
+          <th class="px-4 py-3">Apertura</th>
+          <th class="px-4 py-3">Máximo</th>
+          <th class="px-4 py-3">Mínimo</th>
+          <th class="px-4 py-3">Valor</th>
 
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td class="px-4 py-3">{{quote ? quote.symbol : 'N/A'}}</td>
-        <td class="px-4 py-3">{{quote ? (quote.open | number: '1.2-2') : 'N/A'}}</td>
-        <td class="px-4 py-3">{{quote ? (quote.high | number: '1.2-2') : 'N/A'}}</td>
-        <td class="px-4 py-3">{{quote ? (quote.low | number: '1.2-2') : 'N/A'}}</td>
-        <td class="px-4 py-3">{{quote ? (quote.price | number: '1.2-2') : 'N/A'}}</td>
-      </tr>
-      </tbody>
-    </table>
-
-    <table class="table-auto w-full overflow-x-scroll rounded-lg m-5 mx-auto bg-gray-700 text-gray-50">
-      <thead>
-      <tr>
-        <th class="px-4 py-3">Volumen</th>
-        <th class="px-4 py-3">Último día</th>
-        <th class="px-4 py-3">Cierre Previo</th>
-        <th class="px-4 py-3">Diferencia</th>
-        <th class="px-4 py-3">Diferencia %</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td class="px-4 py-3">{{quote ? (quote.volume | number: '1.0') : "N/A" }}</td>
-        <td class="px-4 py-3">{{quote ? formatDateOnlyDate(quote.latestTradingDay) : 'N/A'}}</td>
-        <td class="px-4 py-3">{{quote ? (quote.previousClose | number: '1.2-2') : 'N/A'}}</td>
-        <td class="px-4 py-3">{{quote ? (quote.change | number: '1.2-2') : 'N/A'}}</td>
-        <td class="px-4 py-3">{{quote ? (quote.changePercent) : 'N/A'}}</td>
-      </tr>
-      </tbody>
-    </table>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="px-4 py-3">{{quote ? quote.symbol : 'N/A'}}</td>
+          <td class="px-4 py-3">{{quote ? (quote.open | number: '1.2-2') : 'N/A'}}</td>
+          <td class="px-4 py-3">{{quote ? (quote.high | number: '1.2-2') : 'N/A'}}</td>
+          <td class="px-4 py-3">{{quote ? (quote.low | number: '1.2-2') : 'N/A'}}</td>
+          <td class="px-4 py-3">{{quote ? (quote.price | number: '1.2-2') : 'N/A'}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full overflow-x-scroll rounded-lg m-5 mx-auto bg-gray-700 text-gray-50">
+        <thead>
+        <tr>
+          <th class="px-4 py-3">Volumen</th>
+          <th class="px-4 py-3">Último día</th>
+          <th class="px-4 py-3">Cierre Previo</th>
+          <th class="px-4 py-3">Diferencia</th>
+          <th class="px-4 py-3">Diferencia %</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="px-4 py-3">{{quote ? (quote.volume | number: '1.0') : "N/A" }}</td>
+          <td class="px-4 py-3">{{quote ? formatDateOnlyDate(quote.latestTradingDay) : 'N/A'}}</td>
+          <td class="px-4 py-3">{{quote ? (quote.previousClose | number: '1.2-2') : 'N/A'}}</td>
+          <td class="px-4 py-3">{{quote ? (quote.change | number: '1.2-2') : 'N/A'}}</td>
+          <td class="px-4 py-3">{{quote ? (quote.changePercent) : 'N/A'}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-
 
 
   <div class="border-gray-600 bg-white border-2 rounded p-2 m-2 w-screen sm:w-2/3 flex-row flex content-center"
