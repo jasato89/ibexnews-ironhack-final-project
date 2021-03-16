@@ -1,8 +1,3 @@
-<div class="w-screen main-bg p-10 flex flex-col items-center content-center justify-center">
-    <img class="bg-white bg-opacity-70 py-4 w-full sm:w-1/2 text-center opacity-100" src="assets/images/logo_ibexnews.png">
-
-</div>
-
 <app-ibex-search (companySelectedEvent)="setCurrentIbexCompany($event)" (isSearching)="userIsSearching($event)"></app-ibex-search>
 <app-main-news *ngIf="isSearching"></app-main-news>
 <app-company-main *ngIf="!isSearching" [ibexCompany]="ibexCompany"></app-company-main>
