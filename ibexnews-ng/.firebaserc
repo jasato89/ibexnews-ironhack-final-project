@@ -7,5 +7,9 @@
         ]
       }
     }
+  },
+  "projects": {
+    "production": "ibexnews",
+    "default": "ibexnews"
   }
 }
