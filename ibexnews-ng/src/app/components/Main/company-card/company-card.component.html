@@ -21,7 +21,7 @@
 
         </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
         <tr>
           <td class="px-4 py-3">{{quote ? quote.symbol : 'N/A'}}</td>
           <td class="px-4 py-3">{{quote ? (quote.open | number: '1.2-2') : 'N/A'}}</td>
@@ -43,7 +43,7 @@
           <th class="px-4 py-3">Diferencia %</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
         <tr>
           <td class="px-4 py-3">{{quote ? (quote.volume) : "N/A" }}</td>
           <td class="px-4 py-3">{{quote ? formatDateOnlyDate(quote.latestTradingDay) : 'N/A'}}</td>
