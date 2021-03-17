@@ -3,7 +3,7 @@
 
   <div class="rounded border-2 border-gray-400 p-2 m-2 w-screen sm:w-2/3 flex-row flex content-center"
        *ngFor="let article of articles; index as i">
-    <img class="self-center w-20 h-full m-2 p-2 bg-white" src="assets/images/{{article.ibexCompany}}.png">
+    <img class="self-center w-20 h-full m-2 p-2" src="assets/images/{{article.ibexCompany}}.png">
     <div>
       <p class="text-gray-600">{{formatDate(article.localDateTime)}}</p>
       <a class="text-gray-500 hover:text-gray-600 text-xl" href="{{article.url}}">{{article.title}}</a>
